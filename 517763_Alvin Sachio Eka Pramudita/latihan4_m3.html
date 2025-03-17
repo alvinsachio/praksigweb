@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bilangan Prima</h1>
+    <p>Masukkan sebuah angka</p>
+    <input type="text" id="angka" name="angka"><br>
+    <button onclick="bil_prima()" id="klik">klik</button>
+    <p id="hasil"></p>
+    <script>
+        function bil_prima() {
+            const b = parseInt(document.getElementById("angka").value);
+            let bil_prima = [];
+            for (let a = 2; a <= b; a++) {
+                let h = 0
+                for (let i = 2; i < a; i++) {
+                    if (a % i === 0) {
+                        h++;
+                        break;
+                    }
+                }
+                if (h === 0) {
+                    bil_prima.push(a);
+                }
+            }
+            document.getElementById("hasil").innerHTML = "Bilangan prima: " + bil_prima.join(", ");
+        }
+    </script>
+</body>
+</html>

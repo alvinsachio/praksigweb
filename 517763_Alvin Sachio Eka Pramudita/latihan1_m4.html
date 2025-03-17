@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan1_M4</title>
+</head>
+<body>
+    <h1>Hitung faktorial dari input</h1>
+    <h2>Masukkan sembarang angka</h2>
+    <input type="number" name="angka" id="angka">
+    <button onclick="faktorial()" id="angka">klik</button>
+    <p id="hasil"></p>
+    <script>
+        function faktorial() {
+            const angka = document.getElementById("angka").value;
+            if (angka === ""){
+                document.getElementById("hasil").innerHTML = "kosong";
+                return;
+            }
+            else if (angka < 0){
+                document.getElementById("hasil").innerHTML = "angka yang dimasukkan negatif";
+                return;
+            }
+            else if (angka - parseInt(angka) != 0){
+                document.getElementById("hasil").innerHTML = "angka yang dimasukkan bukan bilangan bulat";
+                return;
+            }
+            else {
+                let faktorial = 1
+                for (let a = angka; a > 1 ; a--){
+                    faktorial*=a
+                }
+                document.getElementById("hasil").innerHTML = `hasil dari ${angka} = ${faktorial}`;
+                return;
+            }
+        }
+    </script>      
+</body>
+</html>

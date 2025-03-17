@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bilangan Fibonacci</h1>
+    <p>Masukkan sebuah angka</p>
+    <input type="text" id="angka" name="angka"><br>
+    <button onclick="bil_fibonacci()" id="klik">klik</button>
+    <p id="hasil"></p>
+    <script>
+        function bil_fibonacci() {
+            const bil = parseInt(document.getElementById("angka").value);
+            let bil_fibonacci = [];
+            let a = 1, b = 1;
+            if (bil >= 1) bil_fibonacci.push(1);
+            if (bil >= 2) bil_fibonacci.push(1);
+            while (true) {
+                let c = a + b;
+                if (c > bil) break;
+                bil_fibonacci.push(c);
+                a = b;
+                b = c;
+            }
+            document.getElementById("hasil").innerHTML = "Bilangan Fibonacci: " + bil_fibonacci.join(", ");
+        }
+    </script>
+</body>
+</html>

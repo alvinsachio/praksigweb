@@ -1,0 +1,84 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+.body{
+    background:white;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.wrapper {
+    max-width: 1200px; 
+    width: 90%; 
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header{
+    background:blue;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size:large;
+    width: 100%;
+}
+
+.tautan a:link{
+    color:black;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.tautan a:hover{
+    color:black;
+    font-size:larger;
+}
+
+.tautan a:active{
+    font-size:larger;
+    color:red;
+}
+
+.konten {
+    flex-wrap: nowrap;
+    display:flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px;
+}
+
+.leftkonten {
+    background: rgb(239, 233, 233);
+    min-width: 80px;
+    height: auto;
+    padding: 10px;
+}
+
+.middlekonten {
+    background: white;
+    min-width: 200px;
+    height: auto;
+    padding: 10px;
+}
+
+.rightkonten {
+    background: white;
+    flex: 1; 
+    min-width: 100px;
+    height: auto;
+    padding: 10px;
+    flex-direction: column;
+}
+
+
+.footer{
+    background:blue;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    font-family:'Times New Roman', Times, serif;
+    font-size:medium;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Validasi Masukan</h1>
+    <p>Masukkan nama dan umur anda</p>
+    <label for="nama">Nama : </label>
+    <input type="text" id="nama" name="nama"><br>
+    <label for="umur">Umur : </label>
+    <input type="text" id="umur" name="umur"><br>
+    <button onclick="validasi()" id="klik">klik</button>
+    <p id="hasil"></p>
+    <script>
+        function validasi() {
+            const nama = document.getElementById("nama").value;
+            const u = parseInt(document.getElementById("umur").value);
+            if (nama === ""){
+                document.getElementById("hasil").innerHTML = "Isikan nama anda!";
+                return;
+            }
+            else {
+                if (u === 0 || u<0){
+                document.getElementById("hasil").innerHTML = "Anda Game Over";
+                return;
+                }
+                else if (u<=5 && u>0){
+                document.getElementById("hasil").innerHTML = "Anda masih bayi";
+                return;
+                }
+                else if (u>=6 && u<=15){
+                document.getElementById("hasil").innerHTML = "Anda masih anak-anak";
+                return;
+                }
+                else if (u>=16 && u<=30){
+                document.getElementById("hasil").innerHTML = "Anda masih remaja";
+                return;
+                }
+                else if (u>=31){
+                document.getElementById("hasil").innerHTML = "Anda sudah dewasa";
+                return;
+                }
+                else {
+                document.getElementById("hasil").innerHTML = "Isikan umur anda!";
+                return;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
