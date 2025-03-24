@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Web-Map dengan LeafletJS</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/> 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<style>
+    #judul{
+        background-color: rgb(148, 117, 80);
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        padding: 5px 50px;
+        color: #f4e3c1;
+        text-align: left;
+        font-size: 10px;    
+        position: fixed; 
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+    #map {
+        border: none;
+        width: 100%;
+        height: 750px;
+        border-radius: 10px;
+    }
+    .konten-popup {
+        max-width: 250px;
+        max-height: 300px;
+        overflow-y: auto;
+        padding: 10px;
+        font-family: 'Garamond', 'Georgia', 'Times New Roman', serif;
+    }
+    .konten-popup img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-top: 5px;
+    }
+</style>
+<body>
+    <div id="judul">
+        <h1>Monumen dan Heritage di Kota Surakarta</h1>
+    </div>
+    <div id="map">
+        <script>
+            var map = L.map('map',{
+                center: [-7.57175, 110.82967],
+                zoom: 13
+            });
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(map);
+            var marker1 = L.marker([-7.57244, 110.82926]).addTo(map);
+            marker1.bindPopup(`<div class="konten-popup">
+                <b>Patung Slamet Riyadi ꦥꦠꦸꦁꦱ꧀ꦭꦩꦼꦠ꧀ꦫꦶꦪꦢꦶ</b><br><br>
+                <img src="https://www.hidupkatolik.com/wp-content/uploads/2018/12/sajut-patung-letkol-ignatius-slamet-riyadi-desember-2018-hidup-katolik.jpg">
+                <p>Penghormatan terhadap pahlawan nasional Brigjen Anumerta Ignatius Slamet Riyadi. Berada di ujung Jalan Slamet Riyadi dan berdiri setinggi 7 meter.</p>
+                </div>
+            `);
+
+            var marker2 = L.marker([-7.56952, 110.83030]).addTo(map);
+            marker2.bindPopup(`<div class="konten-popup">
+                <b>Tugu Pamandhengan ꦠꦸꦒꦸꦥꦩꦤ꧀ꦝꦼꦁꦔꦤ꧀</b><br><br>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiV2MtkFcs02C_u89KMRRLq8ilZaDcjCiQm_4a-zxHwdNJjYtVoloxt6LEvaif-J4pbkmHD45il84MoO_IZg2yn-s_x7lKdxJkpBt7JsUXVOjTHNaXo2a_Nli7XYhcfTC0KVpPa9WvYhTQ/s320/IMG_3298.JPG">
+                <p>Tugu ini merupakan penanda titik nol kilometer Kota Solo. Dibangun sebagai titik fokus Sri Susuhunan ketika duduk di atas Bangsal Pangrawit.</p>
+                </div>
+            `);
+
+            var marker3 = L.marker([-7.56937, 110.83118]).addTo(map);
+            marker3.bindPopup(`<div class="konten-popup">
+                <b>Tugu Jam Pasar Gedhe ꦠꦸꦒꦸꦗꦩ꧀ꦥꦱꦂꦒꦼꦝꦺ</b><br><br>
+                <img src="https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/230/2024/01/04/tugu-jam-pasar-gede-ress-47127738.jpg">
+                <p>Tugu ini merupakan tugu jam yang dibangun di era Sri Susuhunan Pakubuwana X. Tugu ini berada di depan Pasar Gedhe Harjanagara.</p>
+                </div>
+            `);
+
+            var marker5 = L.marker([-7.55776, 110.84757]).addTo(map);
+            marker5.bindPopup(`<div class="konten-popup">
+                <b>Tugu Cembengan ꦠꦸꦒꦸꦕꦺꦩ꧀ꦧꦺꦁꦔꦤ꧀</b><br><br>
+                <img src="https://lh5.googleusercontent.com/p/AF1QipPBU_h_isJVTItat6YGTWfX0FU85zoLlamvuBGl=w480-h300-k-n-rw">
+                <p>Tugu ini didirikan di era Sri Susuhunan Pakubuwana X dan berada di dekat rumah duka Thiong Thing. Didirikan sebagai penghormatan pada tradisi <i>ching-bhing</i>.</p>
+                </div>
+            `);
+
+            var marker6 = L.marker([-7.56520, 110.85817]).addTo(map);
+            marker6.bindPopup(`<div class="konten-popup">
+                <b>Gapura Jurug ꦒꦥꦸꦫꦗꦸꦫꦸꦒ꧀</b><br><br>
+                <img src="https://imgcdn.espos.id/@espos/images/2023/03/gapura-keraton-di-Jurug.jpg?quality=60">
+                <p>Gapura ini didirikan di era Sri Susuhunan Pakubuwana X. Didirikan sebagai gerbang ibukota di sisi timur.</p>
+                </div>
+            `);
+
+            var marker7 = L.marker([-7.57271, 110.82948]).addTo(map);
+            marker7.bindPopup(`<div class="konten-popup">
+                <b>Gapura Gladhag ꦒꦥꦸꦫꦒ꧀ꦭꦝꦒ꧀</b><br><br>
+                <img src="https://upload.wikimedia.org/wikipedia/id/4/4f/Gapura_gladag.jpg">
+                <p>Gapura ini merupakan gerbang masuk menuju kawasan Karaton Kasunanan. Dipugar dalam bentuk candi bentar di era Sri Susuhunan Pakubuwana X.</p>
+                </div>
+            `);
+
+            var marker8 = L.marker([-7.57408, 110.83013]).addTo(map);
+            marker8.bindPopup(`<div class="konten-popup">
+                <b>Gapura Bathangan ꦒꦥꦸꦫꦧꦛꦁꦔꦤ꧀</b><br><br>
+                <img src="https://scontent.fjog3-1.fna.fbcdn.net/v/t39.30808-6/463344922_3924488697779487_1852537261303265742_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=a9srCTqYC3QQ7kNvgG1PaET&_nc_oc=AdmP3vReJjCILc-_xT1ZjsyMHF4I4vEmGG7BnvPtMpBz30S1rmzEFaQy5NbneMCeSL4&_nc_zt=23&_nc_ht=scontent.fjog3-1.fna&_nc_gid=l30JGTKY3GGVG68FtZdfqA&oh=00_AYGIGEfT7jSQwyxy_drMUV_F4Cqfrb0LapkEX7Njdw4A9Q&oe=67E6BCC4">
+                <p>Gapura Bathangan adalah salah satu dari Tri Margi Gapuraning Ratu (tiga jalan menuju Raja). Berada di sebelah timur Alun Alun Utara.</p>
+                </div>
+            `);
+
+            var marker9 = L.marker([-7.57538, 110.82760]).addTo(map);
+            marker9.bindPopup(`<div class="konten-popup">
+                <b>Gapura Slompretan ꦒꦥꦸꦫꦱ꧀ꦭꦺꦴꦩ꧀ꦥꦿꦺꦠ꧀ꦠꦤ꧀</b><br><br>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2NwZp1QSRMkvCXqmgpk8-bo_hMGyk96cCiZalwZcbuosKKs4D5TjWNYOIOwqLV8bGit1ds_KBimzeppazieiCXVKTB8de4schnABJhe8nxpA30PWDzMai0uJPV7xE0HTAKd8hxXaF6W4/s1600/IMG_20170624_142640.jpg">
+                <p>Gapura Slompretan adalah salah satu dari Tri Margi Gapuraning Ratu (tiga jalan menuju Raja). Berada di sebelah barat Alun Alun Utara dan di dekat Pasar Klewer</p>
+                </div>
+            `);
+
+            var marker10 = L.marker([-7.58360, 110.82584]).addTo(map);
+            marker10.bindPopup(`<div class="konten-popup">
+                <b>Gapura Gadhing ꦒꦥꦸꦫꦒꦝꦶꦁ</b><br><br>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEifTZqtE2hLNFEIN_HE6onyNJ52nbFpZWy29G6dQWF_i223qeWen7wb7Tvio-ioD36lGrW5vT0ge2d77-l4cTUSjhyphenhyphen1AZrqH4QUfk9hh36wwju9g6aA0iXdeV6cOPESowFeM2GUYK7C26M/s1600/P_20191110_124226.jpg">
+                <p>Gapura Gadhing atau Gapuranendra adalah salah satu dari Tri Margi Gapuraning Ratu (tiga jalan menuju Raja). Berada di sebelah selatan Alun Alun Selatan dan menjadi pintu gerbang kawasan kraton dari sisi selatan.</p>
+                </div>
+            `);
+
+            var marker11 = L.marker([-7.57880, 110.80881]).addTo(map);
+            marker11.bindPopup(`<div class="konten-popup">
+                <b>Monumen Gerilya ꦩꦺꦴꦤꦸꦩꦺꦤ꧀ꦒꦼꦫꦶꦭ꧀ꦪ</b><br><br>
+                <img src="https://wartabengawan.news/wp-content/uploads/2023/08/IMG-20230803-WA0032.jpg">
+                <p>Monumen ini berada di persimpangan Jalan Veteran dan Jalan Bhayangkara. Didirikan untuk mengenang perjuangan gerilya</p>
+                </div>
+            `);
+
+            var marker12 = L.marker([-7.56862, 110.80563]).addTo(map);
+            marker12.bindPopup(`<div class="konten-popup">
+                <b>Tugu Kebangkitan Nasional ꦠꦸꦒꦸꦏꦼꦧꦁꦏꦶꦠꦤ꧀ꦤꦱꦶꦪꦺꦴꦤꦭ꧀</b><br><br>
+                <img src="https://akcdn.detik.net.id/community/media/visual/2021/10/30/tugu-kebangkitan-nasional-solo-kamis-28102021-4_43.jpeg?w=700&q=90">
+                <p>Tugu Kebangkitan Nasional berwujud tugu lilin. Dibangun dalam rangka memperingati 25 tahun berdirinya Budi Utomo</p>
+                </div>
+            `);
+
+            var marker13 = L.marker([-7.55908, 110.82827]).addTo(map);
+            marker13.bindPopup(`<div class="konten-popup">
+                <b>Monumen Mayor Achmadi ꦩꦺꦴꦤꦸꦩꦺꦤ꧀ꦩꦪꦺꦴꦂꦄꦲ꧀ꦩꦢꦶ</b><br><br>
+                <img src="https://asset-2.tstatic.net/tribunsolowiki/foto/bank/images/mayor-achmadi-3.jpg">
+                <p>Monumen patung dari Mayor Achmadi, kawan seperjuangan Slamet Riyadi. Dibangun di dekat Proliman (perlimaan) Margoyudan.</p>
+                </div>
+            `);
+
+            var marker14 = L.marker([-7.56483, 110.81844]).addTo(map);
+            marker14.bindPopup(`<div class="konten-popup">
+                <b>Monumen Pers Nasional ꦩꦺꦴꦤꦸꦩꦺꦤ꧀ꦥꦺꦂꦤꦱꦶꦪꦺꦴꦤꦭ꧀</b><br><br>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/National_Press_Monument%2C_Solo_%28panorama%29_Diliff.jpg/1920px-National_Press_Monument%2C_Solo_%28panorama%29_Diliff.jpg">
+                <p>Dulunya bekas Societiet Sasana Soeka sekaligus menjadi tempat dirintisnya radio pribumi pertama <i>Solosche Radio Vereeniging</i>. Persatuan Wartawan Indonesia (PWI) juga dibentuk di gedung ini.</p>
+                </div>
+            `);
+
+            var marker15 = L.marker([-7.55735, 110.77927]).addTo(map);
+            marker15.bindPopup(`<div class="konten-popup">
+                <b>Monumen Batik Kleco ꦩꦺꦴꦤꦸꦩꦺꦤ꧀ꦧꦛꦶꦏ꧀ꦏꦭꦺꦕ</b><br><br>
+                <img src="https://asset-2.tstatic.net/jateng/foto/bank/images/kleco-kota-solo-tugu-batik_20160105_160828.jpg">
+                <p>Monumen berwujud seorang perempuan sedang membatik. Berada di batas kota sebelah barat.</p>
+                </div>
+            `);
+
+            var marker16 = L.marker([-7.55400, 110.79935]).addTo(map);
+            marker16.bindPopup(`<div class="konten-popup">
+                <b>Patung Wisnu Manahan ꦥꦠꦸꦁꦮꦶꦱ꧀ꦤꦸꦩꦤꦃꦲꦤ꧀</b><br><br>
+                <img src="https://asset.kompas.com/crops/BP17d5JHGSv39wNFt1GaMyexB5w=/0x0:0x0/750x500/data/photo/2024/10/20/671484a34c284.jpg">
+                <p>Monumen berwujud seorang tokoh "bambangan" memanah. Berada di tengah persimpangan Jalan Adisutjipto dan Jalan Ahmad Yani.</p>
+                </div>
+            `);
+
+            var marker17 = L.marker([-7.55852, 110.78383]).addTo(map);
+            marker17.bindPopup(`<div class="konten-popup">
+                <b>Gapura Kleco ꦒꦥꦸꦫꦏ꧀ꦭꦺꦕ</b><br><br>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjD-PpU4rh8H400Et6WKPmThfEWbKSxJCNyZzEG7XM2IqNH6C7zKuz_QuPJSTxoZ3Vl_-VGO3I432_7KcxjskbBjLNkWy824FNu7zdYiyhXquOr1WeGSAQGhJaedeo8WQi46hClB2M0b1g/s1600/PhotoGrid_1444370172238.jpg">
+                <p>Gapura ini didirikan di era Sri Susuhunan Pakubuwana X. Didirikan sebagai gerbang ibukota di sisi barat.</p>
+                </div>
+            `);
+
+            var marker18 = L.marker([-7.55612, 110.83856]).addTo(map);
+            marker18.bindPopup(`<div class="konten-popup">
+                <b>Gapura Kandhangsapi ꦒꦥꦸꦫꦏꦤ꧀ꦝꦁꦱꦥꦶ</b><br><br>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBbZ1cEOy_-wVjbCWtZTIbLV8TPKFAEZc_R_-NWatLJAgnIibshgmc1MfjZL4BonqAfrlBs1-3oswwiTBtwTAXbp75TyPhk8EJ89MsynDKW_6oVAQRtZdFDBo6XTPxmFkTDFC12GLQy8s/s1600/PhotoGrid_1444370099519.jpg">
+                <p>Gapura ini didirikan di era Sri Susuhunan Pakubuwana X. Didirikan sebagai gerbang ibukota di sisi utara.</p>
+                </div>
+            `);
+
+            var marker19 = L.marker([-7.55603, 110.80419]).addTo(map);
+            marker19.bindPopup(`<div class="konten-popup">
+                <b>Patung Sukarno ꦥꦠꦸꦁꦱꦸꦏꦂꦤ</b><br><br>
+                <img src="https://cdn.rri.co.id/berita/Surakarta/o/1713865966184-patung_soekarno_di_manahan/6iy0vy77ytcebo8.jpeg">
+                <p>Monumen berwujud Ir. Sukarno duduk dan sedang membaca. Berada di pintu masuk Stadion Manahan</p>
+                </div>
+            `);
+
+            var marker20 = L.marker([-7.56042, 110.82645]).addTo(map);
+            marker20.bindPopup(`<div class="konten-popup">
+                <b>Monumen 45 Banjarsari ꦩꦺꦴꦤꦸꦩꦺꦤ꧀ꦲꦼꦩ꧀ꦥꦠ꧀ꦭꦶꦩꦧꦚ꧀ꦗꦂꦱꦫꦶ</b><br><br>
+                <img src="https://solotourismpromotionboard.org/wp-content/uploads/2020/01/download.jpg">
+                <p>Monumen didirikan di bekas wilayah pemukiman eropa (Villapark). Dibangun untuk memperingati Serangan Umum Empat Hari di Surakarta</p>
+                </div>
+            `);
+
+            var marker21 = L.marker([-7.55470, 110.83122]).addTo(map);
+            marker21.bindPopup(`<div class="konten-popup">
+                <b>Monumen Ganesha Tentara Pelajar ꦩꦺꦴꦤꦸꦩꦺꦤ꧀ꦒꦤꦺꦱꦠꦼꦤ꧀ꦠꦫꦥꦼꦭꦗꦂ</b><br><br>
+                <img src="https://jejakbocahilang.wordpress.com/wp-content/uploads/2013/12/monumen-jalan-tentara-pelajar.jpg?w=600">
+                <p>Monumen ini didirikan untuk mengenang perjuangan Tentara Genie Pelajar.</p>
+                </div>
+            `);
+
+            var marker22 = L.marker([-7.58932, 110.84015]).addTo(map);
+            marker22.bindPopup(`<div class="konten-popup">
+                <b>Gapura Mojo ꦒꦥꦸꦫꦩꦗ</b><br><br>
+                <img src="https://assets.espos.id/images/2022/06/jembatan-mojo-solo-560x348.jpg">
+                <p>Gapura ini didirikan di era Sri Susuhunan Pakubuwana X. Didirikan sebagai gerbang ibukota di sisi timur dan berada di pinggir Bengawan Solo.</p>
+                </div>
+            `);
+
+            var polygon1 = L.polygon([
+                [-7.57256, 110.82931],
+                [-7.57266, 110.82965],
+                [-7.57349, 110.82938],
+                [-7.57379, 110.83038],
+                [-7.57659, 110.82971],
+                [-7.57697, 110.83111],
+                [-7.58204, 110.82983],
+                [-7.58132, 110.82767],
+                [-7.58349, 110.8268],
+                [-7.58322, 110.82611],
+                [-7.58366, 110.82594],
+                [-7.58361, 110.82578],
+                [-7.58314, 110.82592],
+                [-7.58291, 110.82519],
+                [-7.58065, 110.826],
+                [-7.57991, 110.82312],
+                [-7.57536, 110.82423],
+                [-7.57606, 110.82773],
+                [-7.57545, 110.82789],
+                [-7.57499, 110.82597],
+                [-7.57357, 110.82634],
+                [-7.57388, 110.82759],
+                [-7.57298, 110.82781],
+                [-7.57339, 110.82904],
+                [-7.57256, 110.82931]
+            ]).addTo(map);
+            polygon1.bindPopup(`<div class="konten-popup">
+                <b>Kawasan Karaton Kasunanan ꦏꦮꦱꦤ꧀ꦏꦿꦠꦺꦴꦤ꧀ꦏꦱꦸꦤꦤ꧀ꦤꦤ꧀</b><br><br>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Keraton_Surakarta.jpg/1280px-Keraton_Surakarta.jpg">
+                <p>Kompleks istana yang didirikan pada 1745 sebagai pengganti istana di Kartasura. Kawasan ini meliputi Gapura Gladhag, Alun-Alun Utara,
+                    Masjid Agung Surakarta, Baluwarti, Alun-Alun Kidul, dan Gapura Gadhing. Istana ini menjadi tempat tinggal resmi bagi Susuhunan Surakarta.</p>
+                </div>
+            `);
+
+            var polygon2 = L.polygon([
+                [-7.56836, 110.82379],
+                [-7.56733, 110.82094],
+                [-7.56454, 110.82228],
+                [-7.56497, 110.82314],
+                [-7.56607, 110.82442],
+                [-7.56836, 110.82379]
+            ]).addTo(map);
+            polygon2.bindPopup(`<div class="konten-popup">
+                <b>Kawasan Pura Mangkunegaran ꦏꦮꦱꦤ꧀ꦥꦸꦫꦩꦁꦏꦸꦤꦒꦫꦤ꧀</b><br><br>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Grand_Pendopo%2C_Mangkunegaran_Palace.jpg/1920px-Grand_Pendopo%2C_Mangkunegaran_Palace.jpg">
+                <p>Kompleks istana ini didirikan pada 1757 dan digunakan sebagai tempat tinggal resmi bagi Pangeran Adipati Mangkunegara. Mangkunegaran merupakan cabang dari 
+                    dinasti Mataram Islam di Surakarta.</p>
+                </div>
+            `);
+            
+        </script>
+    </div>
+</body>
+
+</html>
